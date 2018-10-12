@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  {% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo_List</title>
+</head>
+<body>
+	<div class="form-group">
+		<h1>ToDo <small>List</small></h1>
+		<div>
+			<h2>UUID :-</h2> 
+			<ol>
+				{% for item in items %}
+					<li><h4><strong>{{item.uuid}}</strong></h4></li>
+				{% endfor %}
+				
+			</ol>
+
+			<h2>Your Title is:-</h2>
+			<ol>
+				{% for item in items %}
+					<li><h4><strong>{{ item.title_text }}</strong></h4></li>
+				{% endfor %}
+				
+			</ol>
+		
+		
+			<h2>Your Notes is:-</h2>
+			<ol>
+				{% for item in items %}
+					<li><h5>{{item.notes}}</h5></li>
+				{% endfor %}
+			</ol>
+		
+	
+			<strong>Created at :-</strong> 
+			<ol>
+				{% for item in items %}
+					<li>{{item.created_at}}</li>
+				{% endfor %}
+			</ol>
+			<strong>Modified at :-</strong> 
+			<ul>
+				{% for item in items %}
+					<li>{{item.modified_at}} </a></li>
+				{% endfor %}
+			</ul>
+		</div>	
+
+	</div>
+
+	
+</body>
+</html>
+<button type="button" class="btn btn-danger pull-right"><a href="{% url 'logout' %}">logout</a></button>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock %}

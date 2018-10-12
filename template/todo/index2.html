@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo_Result</title>
+</head>
+<body>
+	<a href="todo/index1.html"> <<Go back to ToDo</a>
+	<div>
+		<strong>Created at :-</strong> 
+			<ol>
+				{% for item in items %}
+					<li>{{item.created_at}}</li>
+				{% endfor %}
+			</ol>
+			<strong>Modified at :-</strong> 
+			<ul>
+				{% for item in items %}
+					<li>{{item.modified_at}} </a></li>
+				{% endfor %}
+			</ul>
+	</div>
+</body>
+</html>

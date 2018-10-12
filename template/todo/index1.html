@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Todo_List</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'csstodo/todo.css' %}">
+</head>
+<body>
+	<form method="post">
+		{% csrf_token %}
+		<!-- <a href="{% url 'todo_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a><-->
+		<a href="{% url 'todo_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+		<fieldset>
+		<legend>ToDo List</legend> 
+		{% if user.is_authenticated %}
+        <p class="top-menu">Hello {{ user.username }} :)</p>
+		<strong>Title</strong><br>
+		<input type="text" name="title" id="t1">
+		<br>
+		<br>
+		<strong>Date-Time Reminder</strong><br>
+		<input type="datetime-local" name="reminder" id="t2">
+		<br>
+		<br>
+		<strong>Notes</strong><br>
+		<textarea name="notes" rows="20" cols="40"></textarea>
+		<br>
+		<br>
+		<div class="button">
+			<input type="submit">
+			<input type="reset" name="reset">
+		</div>
+		<div class="page-header">
+
+         {% else %}
+         <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+    	{% endif %}
+		</div>
+		</fieldset>
+	</form>
+	<form action="{% url 'logout' %}" method="post"> {% csrf_token %} <input type="submit" value="Logout"></input> </form>
+</body>
+</html>

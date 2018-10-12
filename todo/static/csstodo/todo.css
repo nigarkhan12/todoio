@@ -1,0 +1,35 @@
+legend{
+	color:orange;
+	font-family:'Lobster' serif strong;
+	text-decoration:uppercase;
+}
+
+strong{
+	color:#FCA205;
+	font-family:"Lobster" serif;
+}
+
+.button input[type="submit"], .button input[type="reset"]{
+	background-color:black;
+	color:white;
+	padding:10px 15px;
+	border:none;
+	margin: 5px;
+
+}
+
+#t1{
+	padding:8px;
+	width: 100%;
+
+}
+
+#t2{
+	padding:8px;
+	width: 100%;
+}
+
+label{
+	color:red;
+}
+

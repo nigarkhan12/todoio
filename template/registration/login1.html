@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo Login</title>
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'css/todo.css' %}">-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-responsive.min.css' %}"/>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    <div class="row backgroundimg">
+        <div class="container">
+            <div class="jumbotron justify-content-center">
+                <div class="panel panel-info p-3 mb-2 bg-secondary text-white">
+                    <div class="panel-heading">
+                        <h3>Please enter Your Credentials</h3>
+                    </div>
+                    <form method="POST" class="form-group">{% csrf_token %}
+                        <p>
+                            <label class="bg-danger">Username</label>
+                            <br>
+                            <input type="text" name="username" class="form-control">
+                        </p>
+                        <p>
+                            <label class="bg-danger">Password</label>
+                            <br>
+                            <input type="password" name="password" class="form-control">
+                        </p>
+                        <button type="submit" class="btn btn-info">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Logout</title>
+	<style>
+		body {
+background-color: #d24dff
+}
+	</style>
+</head>
+<body>
+	{% block content %}
+	<div class="content">
+        <p color="red"><h1>Thank You {{user.username}} for Login</h1></p>
+        <p color="red"><h3>You are successfully logged out.</h3> <a href="{% url 'login' %}"><h4>Click here</a></h4><h4> to login again.</h4></p>
+        
+    </div>
+
+	{% endblock %}
+</body>
+</html>
